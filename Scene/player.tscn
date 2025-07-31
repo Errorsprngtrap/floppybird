@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://w67h2gtumihg"]
+
+[ext_resource type="Texture2D" uid="uid://bukt24n3banmh" path="res://Sprite/bird.png" id="1_kelma"]
+[ext_resource type="Script" uid="uid://b1ali8ydbrpoq" path="res://Script/player.gd" id="1_y8w33"]
+[ext_resource type="AudioStream" uid="uid://cxv3w5q7r23su" path="res://sound_music/crash.wav" id="3_xa75v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y8w33"]
+radius = 16.6667
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
+collision_mask = 2
+script = ExtResource("1_y8w33")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kelma")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y8w33")
+
+[node name="Crash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xa75v")
+bus = &"vfx"

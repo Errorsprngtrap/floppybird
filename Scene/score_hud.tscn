@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqnamtjnepb64"]
+
+[ext_resource type="Script" uid="uid://bxqwxiahslxhn" path="res://Script/score_hud.gd" id="1_m7krh"]
+[ext_resource type="Theme" uid="uid://dtl6id04l7wsl" path="res://Theme/new_theme.tres" id="2_nhobv"]
+
+[node name="ScoreHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m7krh")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 47.0
+theme = ExtResource("2_nhobv")
+text = "Score : 0"
+horizontal_alignment = 1
+vertical_alignment = 1

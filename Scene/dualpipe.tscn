@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://7xqi5547648h"]
+
+[ext_resource type="Script" uid="uid://bqk14sewene6s" path="res://Script/dualpipe.gd" id="1_oaucu"]
+[ext_resource type="PackedScene" uid="uid://blvrxdi8wafof" path="res://Scene/pipe.tscn" id="1_rmqin"]
+[ext_resource type="AudioStream" uid="uid://cwqj2mefedchc" path="res://sound_music/point.wav" id="3_20etu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oaucu"]
+size = Vector2(120, 171)
+
+[node name="dualpipe" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_oaucu")
+
+[node name="pipe" parent="." instance=ExtResource("1_rmqin")]
+position = Vector2(0, 423)
+
+[node name="pipe2" parent="." instance=ExtResource("1_rmqin")]
+position = Vector2(0, -199)
+rotation = 3.14159
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 9.0
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 111.5)
+shape = SubResource("RectangleShape2D_oaucu")
+
+[node name="Point" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_20etu")
+bus = &"vfx"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

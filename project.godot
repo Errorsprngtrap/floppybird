@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="flappybird"
+run/main_scene="uid://cwt3r3t7tjdmi"
+config/features=PackedStringArray("4.4", "Forward Plus")
+
+[autoload]
+
+Global="*res://Script/Global.gd"
+GameData="*res://Script/game_data.gd"
+
+[display]
+
+window/size/viewport_width=576
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="damager"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=3

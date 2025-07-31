@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwt3r3t7tjdmi"]
+
+[ext_resource type="Script" uid="uid://bf2m18q185yxa" path="res://Script/main_menu.gd" id="1_kqsxi"]
+[ext_resource type="Theme" uid="uid://dtl6id04l7wsl" path="res://Theme/new_theme.tres" id="2_pvidh"]
+[ext_resource type="AudioStream" uid="uid://dhhk42y8wkx7d" path="res://sound_music/play.wav" id="3_hptlk"]
+[ext_resource type="AudioStream" uid="uid://b8g71r58ilfyc" path="res://sound_music/quit.wav" id="4_oqads"]
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kqsxi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0371223, 0.0849248, 0, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 131.0
+theme = ExtResource("2_pvidh")
+text = "Floppy Bird"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighestScore" type="Label" parent="."]
+layout_mode = 0
+offset_top = 581.0
+offset_right = 576.0
+offset_bottom = 648.0
+theme = ExtResource("2_pvidh")
+text = "Highest_Score : 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -124.0
+offset_right = 144.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_pvidh")
+text = "Play"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = 76.0
+offset_right = 144.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_pvidh")
+text = "Quit
+"
+
+[node name="Play2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hptlk")
+bus = &"vfx"
+
+[node name="Quit2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_oqads")
+bus = &"vfx"
+
+[connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
